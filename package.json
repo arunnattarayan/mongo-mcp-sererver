@@ -1,21 +1,33 @@
 {
-  "name": "my-mcp-server",
+  "name": "mongodb-mcp-server",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "MCP server for MongoDB with read-only query capabilities",
+  "type": "module",
+  "main": "build/index.js",
+  "bin": {
+    "mongodb-mcp-server": "build/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node build/index.js",
+    "dev": "tsc && node build/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "mongodb",
+    "database",
+    "model-context-protocol"
+  ],
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.21.1",
-    "express": "^5.1.0",
-    "zod": "^3.25.76"
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "mongodb": "^6.3.0"
   },
   "devDependencies": {
-    "tsx": "^4.20.6",
-    "typescript": "^5.9.3"
+    "@types/node": "^22.0.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
